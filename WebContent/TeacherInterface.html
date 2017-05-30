@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Teacher Interface</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Tangerine">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Play">
+    <link rel="stylesheet" type="text/css" href="./css/styling.css">
+    <script src="jquery-3.2.1.min.js"></script>
+    <script type="text/javascript" async src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?..."></script>    
+    <!--<link rel="stylesheet" type="text/css" href="./css/font-awesome/css/font-awesome.min.css">-->
+</head>
+<body>
+<div class="navbar navbar-inverse">
+    <div class="container fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#topNavBar">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="http://www.ekshiksha.org.in/" style="font-family:Play">ekShiksha</a>
+        </div>
+
+        <!-- HEader-->
+
+        <div class="collapse navbar-collapse" id="topNavBar">
+            <ul class="nav navbar-nav">
+                <li class="active">
+                    <a href="{% url 'music:index' %}">
+                        <span class="glyphicon glyphicon-blackboard" aria-hidden="true"></span>&nbsp;&nbsp;
+                            BlackBoard&nbsp;&nbsp;
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-phone-alt" aria-hidden="true"></span>&nbsp;&nbsp;
+                            Contact Us&nbsp;&nbsp;
+                    </a>
+                </li>
+                <li class="">
+                    <a href="#">
+                        <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;&nbsp;
+                            About Us&nbsp;&nbsp;
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="container">
+        <div class="col-md-4">
+            <!--This is for the utility tool section-->
+            <div class="row utiltool">
+                <h3 class="allhead" style="padding : 5px;text-align:center">ToolBox</h3>
+                <hr>
+                &nbsp;&nbsp;
+                <form class="form" action="typejsServlet" method="get">
+                    <textarea id="textformat" class="form-control" rows="10" placeholder="Start with tags <math></math>" name="usertext"></textarea><br>
+                    <input type="submit" value="Submit">
+                </form>
+                <!--This is a row of tools similarly you can create more rows-->
+                <br>
+                <hr>
+                <h3 class="allhead" style="padding : 5px;text-align:center">MathToolBox</h3>
+                <div class="row">
+                    <div class="col-md-12 mathtool">
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&sum;(i= , )')">&sum;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&prod;(i= , )')">&prod;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&int;( , )')">&int;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&part;')">&part;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&Delta;')">&Delta;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&Theta;')">&Theta;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&nabla;')">&nabla;</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('&radic;( )')">&radic;</button>
+                    </div>
+                </div>
+                <br>
+                <div class="row">
+                	<div class="col-md-12 mathtool">
+                	&nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('C( , )')">nCr</button>
+                    &nbsp;
+                    <button class="btn btn-primary" onclick="insertSymbol('P( , )')">nPr</button>
+                    </div>
+                </div>
+                <br>
+                <hr>
+                <!-- <div class="row">
+                    <a href="#">
+                        <div class="col-md-2 col-md-offset-2 tooldiv">
+                            <svg class="toolgraphic"> 
+                                <rect x="2" y="9" width="30" height="25" style="fill:white;stroke-width:2;stroke:black" />  
+                            </svg> 
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="col-md-2 col-md-offset-1 tooldiv">
+                            <svg class="toolgraphic"> 
+                                <circle cx="18" cy="22" r="15" stroke="black" stroke-width="2" fill="white"/>  
+                            </svg> 
+                        </div>
+                    </a>
+                    <a href="#">
+                        <div class="col-md-2 col-md-offset-1 tooldiv">
+                            <svg class="toolgraphic"> 
+                                 <ellipse cx="20" cy="23" rx="19" ry="10" style="fill:white;stroke:black;stroke-width:2" />   
+                            </svg> 
+                        </div>
+                    </a>
+                </div>
+                <hr>-->
+                <h3 class="allhead" style="padding : 5px;text-align:center">Preferences</h3>
+                <hr>
+                <br>
+                <!-- Creating Preferences-->
+                <div class="row colorpicker">
+                    <div class="col-md-8 col-md-offset-2">
+                        <strong title="select porion to hightlight">Color : </strong><input type="color" id="favcolor" value="#ff0000" style="width:40%">&nbsp;
+                        <button class="btn btn-primary preferences" type="button" name="btn-hightlight" onclick="UserStyling(0)"><span style="font-size:13px">High light</span></button>
+                        <br>
+                    </div>
+                </div>
+                <div class="row textstyling">
+                    <div class="col-md-8 col-md-offset-2">
+                        <br>
+                        <strong title="select porion to hightlight">Style : </strong>&nbsp;
+                        <button class="btn btn-primary preferences" type="button" name="btn-bold" onclick="UserStyling(1)"><span class="glyphicon glyphicon-bold"></span></button>&nbsp;&nbsp;&nbsp;
+                        <button class="btn btn-primary preferences" type="button" name="btn-italics" onclick="UserStyling(2)"><span class="glyphicon glyphicon-italic"></span></button>&nbsp;
+                        <br>
+                    </div>
+                </div>
+                <div class="row font">
+                    <div class="col-md-8 col-md-offset-2">
+                        <br>
+                        Please add the Font Selector Here And Remove this Tag
+                        <br>
+                        <strong title="select porion to hightlight">Font : </strong>&nbsp;
+                        <!-- Add the font selector here -->
+                        <select id="fonts">
+                            <option value="Verdana">Verdana</option>
+                            <option value="Arial">Arial</option>
+                            <option value="Broadway ">Broadway </option>
+                            <option value="Century">Century </option>
+                        </select>
+                        &nbsp;
+                        <button class="btn btn-primary preferences" type="button" name="btn-hightlight" onclick="UserStyling(3)"><span>Select</span></button>&nbsp;
+                        <br>
+                    </div>
+                </div>   
+                <br>
+            </div>
+        </div>
+        
+        <!--This is for the blackboard section-->
+        <div class="col-md-7 col-md-offset-1 text-portion">
+            <h5 style="color:blue;text-align: center">PREVIEW</h5>
+            <!--<p id="mirrortext" style="color:white"></p>-->
+            <section id="textdata" contenteditable="true">
+        	   <div id="mypara" name="mypara">
+				    <p style="color:white;" id="mirrortext"></p>
+        	   </div>
+			     <input type="hidden" value="" name="hidden1" id="hidden1" />
+			</section>
+        </div>
+
+    </div>
+</div>
+<br><br>
+<div class="row footer">
+    <br><br><br>
+    <div class="container fluid">
+        <div class="col-md-4">
+            <span style="color:white">This site has been developed as a part of the Summer Internship Program Under the guidance of our Mentor Avinash Awate Sir.In case of Any Query Please Feel Free To Reach out to us.</span>
+        </div>
+        <!--<div class="col-md-4">
+        </div>-->
+        <div class="col-md-4 col-md-offset-4" style="background-color: white;">
+            <a href="http://www.ekshiksha.org.in/">
+                <img class="img img-responsive" src="images/logo.png" height=100% width=100% /> 
+            </a>
+        </div>
+    </div>
+    <br><br><br>
+</div>
+
+<script type="text/javascript">
+        var elem = document.getElementById("mirrortext");
+        var text = document.getElementById("textformat");
+        
+        /*function f8()
+		{
+			//alert(document.getElementById("mypara").innerHTML);
+			document.getElementById("hidden1").value=document.getElementById("mypara").innerHTML;
+			//alert(document.getElementById("hidden1").value);
+		}*/
+        
+        $("#textformat").keyup(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                insertAtCaret("textformat","<br>");
+            }
+            elem.innerHTML = this.value;
+        });
+		
+		/*$("#mirrortext").keypress(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            text.value = this.innerHTML;
+        });*/
+		
+        /*$("#textformat").change(function(event) {
+            var keycode = (event.keyCode ? event.keyCode : event.which);
+            if(keycode == '13'){
+                this.value+="<br>";  
+            }else elem.innerHTML = this.value;
+        });*/
+
+        //var area = container.querySelector('textarea');
+        
+        function insertSymbol(string){
+            var notation = string;
+            insertAtCaret("textformat",notation);
+        }
+        /*document.addEventListener("DOMContentLoaded", function(){
+            Typed.new(".elementtext", {
+                strings: [str],
+                typeSpeed: 120
+            });
+        });*/
+
+        function insertAtCaret(areaId, text) {
+            var txtarea = document.getElementById(areaId);
+            if (!txtarea) { return; }
+
+            var scrollPos = txtarea.scrollTop;
+            var strPos = 0;
+            var br = ((txtarea.selectionStart || txtarea.selectionStart == '0') ?
+                "ff" : (document.selection ? "ie" : false ) );
+            if (br == "ie") {
+                txtarea.focus();
+                var range = document.selection.createRange();
+                range.moveStart ('character', -txtarea.value.length);
+                strPos = range.text.length;
+            } else if (br == "ff") {
+                strPos = txtarea.selectionStart;
+            }
+
+            var front = (txtarea.value).substring(0, strPos);
+            var back = (txtarea.value).substring(strPos, txtarea.value.length);
+            txtarea.value = front + text + back;
+            strPos = strPos + text.length;
+            if (br == "ie") {
+                txtarea.focus();
+                var ieRange = document.selection.createRange();
+                ieRange.moveStart ('character', -txtarea.value.length);
+                ieRange.moveStart ('character', strPos);
+                ieRange.moveEnd ('character', 0);
+                ieRange.select();
+            } else if (br == "ff") {
+                txtarea.selectionStart = strPos;
+                txtarea.selectionEnd = strPos;
+                txtarea.focus();
+            }
+
+            txtarea.scrollTop = scrollPos;
+        }
+        
+        
+        function UserStyling(index) {
+            var range;
+            var c=document.getElementById("favcolor").value;
+            var f=document.getElementById("fonts").value;
+            var startString=["<font color='"+c+"'>","<b>","<i>","<font face='"+f+"'>"];
+            var endString = ["</font>","</b>","</i>","</font>"];
+            //alert("The Selected Font is"+f);
+            if (window.getSelection && window.getSelection().getRangeAt) {
+                //alert(window.getSelection());
+                var html= startString[index]+ window.getSelection() + endString[index];
+                //alert(html);
+                range = window.getSelection().getRangeAt(0);
+                //alert(range);
+                range.deleteContents();
+                //alert(range);
+                var div = document.createElement("div");
+                div.innerHTML = html;
+                var frag = document.createDocumentFragment(), child;
+                while ( (child = div.firstChild) ) {
+                    frag.appendChild(child);
+                }
+                range.insertNode(frag);
+            } else if (document.selection && document.selection.createRange) {
+                range = document.selection.createRange();
+                range.pasteHTML(html);
+            }
+            text.value = elem.innerHTML;
+        }
+        //This is the script for drag and drop
+        /*function allowDrop(ev) {
+            ev.preventDefault();
+        }
+
+        function drag(ev) {
+            ev.dataTransfer.setData("text", ev.target.id);
+        }
+
+        function drop(ev) {
+            ev.preventDefault();
+            var data = ev.dataTransfer.getData("text");
+            ev.target.appendChild(document.getElementById(data));
+        }*/
+</script>
+</body>
+</html>

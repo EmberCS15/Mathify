@@ -1,0 +1,50 @@
+body{
+    background-image: url("../images/fresh_snow.png");
+    height:100%;
+    width:100%;
+}
+.utiltool{
+	background-color: #ff9933;
+	opacity : 0.7;
+	border : 3px solid red;
+}
+.allhead{
+	color : black;
+	font-family: Rockwell;
+	text-shadow: 2px 2px 2px black;
+}
+.tooldiv{
+	border:2px solid black;
+	/*transition: .5s;*/
+	background-color: #bfbfbf;
+	box-shadow: 1px 2px 1px 1px rgba(0,0,0,1);
+}
+.tooldiv:hover{
+	transform: scale(1.1,1.1);
+}
+.toolgraphic{
+	height:40px; 
+	width:120%;
+}
+.text-portion{
+	background-color: black;
+	height : 800px;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,1);
+	overflow-y: auto;
+}
+.picture{
+	/*background-image: url("../images/paper-back.jpg");*/
+	background-color: white;
+	height: 800px;
+	border:2px solid black;
+	box-shadow: 2px 2px 2px 2px rgba(0,0,0,1);
+	overflow-y: auto;
+}
+.footer{
+	border: 2px solid grey;
+	background-color: #2a2730;
+}
+#dropbox{
+	border : 2px solid black;
+	height:40%;
+}
