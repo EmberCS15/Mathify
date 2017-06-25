@@ -1,5 +1,5 @@
 # Mathify
-A user interface to type simple math which upon submission generate an output html file with the equations rendered in MATHML processed via MATHJAX and animated using Typed.js
+A user interface to type simple math which upon submission generate an output html file with the equations rendered in MATHML and animated using Typed.js
 
 # Conventions
 My code converter assume the user to know only a few custom conventions.Any user can usually use this interface without going through the hassles of learning a language. They only need to adhere to a few conventions which are - 
